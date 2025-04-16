@@ -1,0 +1,52 @@
+.svg {
+    width: 100%;
+    height: auto;
+  }
+
+.st0 {
+    fill: #1fea71;
+  }
+
+  .st1 {
+    fill: #fff;
+  }
+
+  .st2 {
+    fill: #262525;
+  }
+
+  .st3 {
+    fill: #ff006f;
+  }
+
+  @keyframes ship-float {
+    0% {transform: translateY(0);}
+    25% {transform: translateY(-25px);}
+    75% {transform: translateY(25px);}
+    100% {transform: translateY(0);}
+      }
+ 
+   @keyframes beam-anim {
+    0% {opacity: 0; transform: translateY(0);}
+    25% {opacity: 1; transform: translateY(-25px);}
+    75% {transform: translateY(25px);}
+    100%  {opacity: 0; transform: translateY(0);}
+   }
+
+   @keyframes arm-anim {
+    0% {transform: rotate(0); transform: translateX(0px);}
+    25% {transform: rotate(3deg); transform: translateX(-10px);}
+    50% {transform: rotate(-3deg); transform: translateX(10px);}
+    100% {transform: rotate(0); transform: translateX(0px);}
+   }
+
+   #beam {
+    animation: beam-anim 5s linear infinite;
+   }
+ .arm-wave {
+    animation: arm-anim 2s linear infinite;
+ }
+ .ship-float {
+    animation: ship-float 5s linear infinite;
+  }
+

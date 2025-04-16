@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Room Navigation Game</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    .room {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: none; /* All rooms hidden by default */
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1s ease-in-out;
+      background-color: #f3f3f3;
+      flex-direction: column;
+    }
+    .active-room {
+      display: flex;
+    }
+    .door {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 50px;
+      background-color: #ff6f61;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .object {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .room-1 { background-color: #a2d2ff; }
+    .room-2 { background-color: #ffb3ba; }
+    .room-3 { background-color: #ffcc5c; }
+    .room-4 { background-color: #96ceb4; }
+    .room-5 { background-color: #ff6f61; }
+    .room-6 { background-color: #ffbb33; }
+    .room-7 { background-color: #9b59b6; }
+    .room-8 { background-color: #2ecc71; }
+    .room-9 { background-color: #3498db; }
+    .room-10 { background-color: #e74c3c; }
+    .room-11 { background-color: #f39c12; }
+    .room-12 { background-color: #1abc9c; }
+    .room-13 { background-color: #8e44ad; }
+    .room-14 { background-color: #34495e; }
+    .room-15 { background-color: #f39c12; }
+    .message {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Room 1 -->
+  <div id="room1" class="room room-1 active-room">
+    <div class="message">Welcome to Room 1!</div>
+    <div class="door" onclick="goToRoom(2)">Go to Room 2</div>
+    <div class="object" onclick="interactWithObject(1)">Interact with Object 1</div>
+  </div>
+
+  <!-- Room 2 -->
+  <div id="room2" class="room room-2">
+    <div class="message">You are in Room 2.</div>
+    <div class="door" onclick="goToRoom(3)">Go to Room 3</div>
+    <div class="object" onclick="interactWithObject(2)">Interact with Object 2</div>
+  </div>
+
+  <!-- Room 3 -->
+  <div id="room3" class="room room-3">
+    <div class="message">This is Room 3!</div>
+    <div class="door" onclick="goToRoom(4)">Go to Room 4</div>
+    <div class="object" onclick="interactWithObject(3)">Interact with Object 3</div>
+  </div>
+
+  <!-- Room 4 -->
+  <div id="room4" class="room room-4">
+    <div class="message">Room 4 is ready.</div>
+    <div class="door" onclick="goToRoom(5)">Go to Room 5</div>
+    <div class="object" onclick="interactWithObject(4)">Interact with Object 4</div>
+  </div>
+
+  <!-- Add more rooms here with similar structure... -->
+
+  <!-- Room 15 -->
+  <div id="room15" class="room room-15">
+    <div class="message">You've reached Room 15!</div>
+    <div class="door" onclick="goToRoom(1)">Go to Room 1</div>
+    <div class="object" onclick="interactWithObject(15)">Interact with Object 15</div>
+  </div>
+
+  <script>
+    // Function to switch between rooms with fade transition
+    function goToRoom(roomNumber) {
+      const rooms = document.querySelectorAll('.room');
+      rooms.forEach(room => room.classList.remove('active-room'));
+
+      const newRoom = document.getElementById(`room${roomNumber}`);
+      newRoom.classList.add('active-room');
+    }
+
+    // Function for interacting with objects
+    function interactWithObject(objectNumber) {
+      alert(`You interacted with Object ${objectNumber}!`);
+      // Add more complex object interactions here, like changing colors, showing hidden messages, etc.
+    }
+
+    // Initialize by showing Room 1
+    goToRoom(1);
+  </script>
+</body>
+</html>

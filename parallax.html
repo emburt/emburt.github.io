@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scroll-Animated SVG Shapes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    .shape {
+      position: fixed;
+      will-change: transform;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-blue-100 to-white text-gray-800">
+  <div class="relative h-[300vh]">
+    <!-- Shape 1: Circle -->
+    <svg id="circle" viewBox="0 0 100 100" class="shape w-32 h-32" style="top: 40px; left: 40px;">
+      <circle cx="50" cy="50" r="40" fill="#4FD1C5" />
+    </svg>
+
+    <!-- Shape 2: Rectangle -->
+    <svg id="square" viewBox="0 0 100 100" class="shape w-24 h-24" style="top: 160px; left: 50%; transform: translateX(-50%);">
+      <rect width="100" height="100" fill="#667EEA" />
+    </svg>
+
+    <!-- Shape 3: Triangle -->
+    <svg id="triangle" viewBox="0 0 100 100" class="shape w-28 h-28" style="top: 320px; right: 40px; position: fixed;">
+      <polygon points="50,0 100,100 0,100" fill="#F6AD55" />
+    </svg>
+
+    <div class="h-screen flex items-center justify-center">
+      <h1 class="text-5xl font-bold text-center">Scroll to Animate SVG Shapes</h1>
+    </div>
+
+    <div class="h-screen flex items-center justify-center bg-white">
+      <p class="text-2xl">Each shape moves in a unique direction and speed as you scroll.</p>
+    </div>
+
+    <div class="h-screen flex items-center justify-center bg-gray-800 text-white">
+      <p class="text-2xl">You've reached the end!</p>
+    </div>
+  </div>
+
+  <script>
+    const circle = document.getElementById('circle');
+    const square = document.getElementById('square');
+    const triangle = document.getElementById('triangle');
+
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+
+      circle.style.transform = `translate(${scrollY * 0.5}px, ${scrollY * 0.2}px)`;
+      square.style.transform = `translate(${scrollY * -0.3}px, ${scrollY * 0.4}px)`;
+      triangle.style.transform = `translate(${scrollY * 0.2}px, ${scrollY * -0.5}px)`;
+    });
+  </script>
+</body>
+</html>
