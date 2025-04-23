@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eased Scroll Navigation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+    .sections {
+      transition: transform 0.7s ease-in-out;
+      will-change: transform;
+    }
+    .section {
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3em;
+      color: white;
+    }
+    
+    /* Fullscreen black overlay */
+    .fade-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2s ease;
+      z-index: 9999;
+    }
+
+    /* Triggered state */
+    .fade-in {
+      opacity: 0.7;
+    }
+    .section:nth-child(1) { background: #1abc9c; }
+    .section:nth-child(2) { background: #3498db; }
+    .section:nth-child(3) { background: #9b59b6; }
+    .section:nth-child(4) { background: #e67e22; }
+    .section:nth-child(5) { background: #e74c3c; }
+  </style>
+</head>
+<body>
+  
+
+  <div id="overlay" class="fade-overlay">
+    <div class="container">
+    <div class="sections" id="sections">
+      <div class="section">Page 1</div>
+      <div class="section">Page 2</div>
+      <div class="section">Page 3</div>
+      <div class="section">Page 4</div>
+      <div class="section">Page 5</div>
+    </div>
+  </div>
+
+  </div>
+
+  <script>
+    const sections = document.getElementById('sections');
+    const totalPages = 5;
+    let currentIndex = 0;
+    let isScrolling = false;
+
+    function scrollToPage(index) {
+      isScrolling = true;
+      sections.style.transform = `translateY(-${index * 100}vh)`;
+      setTimeout(() => isScrolling = false, 700); // match transition duration
+    }
+
+    window.addEventListener('wheel', (e) => {
+      if (isScrolling) return;
+      if (e.deltaY > 0 && currentIndex < totalPages - 1) {
+        currentIndex++;
+        scrollToPage(currentIndex);
+      } else if (e.deltaY < 0 && currentIndex > 0) {
+        currentIndex--;
+        scrollToPage(currentIndex);
+      }
+    });
+
+    // Optional: touch swipe support
+    let startY = 0;
+    let endY = 0;
+
+    document.addEventListener('touchstart', e => {
+      startY = e.touches[0].clientY;
+    });
+
+    document.addEventListener('touchend', e => {
+      endY = e.changedTouches[0].clientY;
+      const dy = endY - startY;
+      if (isScrolling) return;
+      if (dy < -30 && currentIndex < totalPages - 1) {
+        currentIndex++;
+        scrollToPage(currentIndex);
+      } else if (dy > 30 && currentIndex > 0) {
+        currentIndex--;
+        scrollToPage(currentIndex);
+      }
+    });
+    window.addEventListener('load', () => {
+      // Delay before fade starts (optional)
+      setTimeout(() => {
+        document.getElementById('overlay').classList.add('fade-in');
+      }, 500); // starts fading in 0.5 seconds after load
+    });
+
+  </script>
+</body>
+</html>

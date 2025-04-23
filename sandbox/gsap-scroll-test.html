@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.container {
+  max-height: 100vh;
+	overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  overflow-x: hidden;
+}
+
+.panel {
+  scroll-snap-align: start;
+  height: 100vh;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.text-center {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+.text-center-child {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.proto {
+  background-color: #210f21;
+  background-image: none;
+}
+
+.proto h1 {
+    color: white;
+}
+
+
+.core {
+    background-color: black;
+}
+
+.core h1 {
+    color: white;
+}
+
+
+.panel p {
+  font-size: 32px;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="panel proto">
+          <div class="text-center">
+            <div class="text-center-child">
+                <h1>Life of the Sun</h1>
+            </div>
+          </div>
+        </section>
+        <section class="panel core">
+            <div class="text-center">
+              <div class="text-center-child">
+                  <h1>Core Forms</h1>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="text-center">
+              <div class="text-center-child">
+                  <h1>Planets Form</h1>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="text-center">
+              <div class="text-center-child">
+                  <h1>Red Giant</h1>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="text-center">
+              <div class="text-center-child">
+                  <h1>White Dwarf</h1>
+              </div>
+            </div>
+          </section>
+          <section class="panel">
+            <div class="text-center">
+              <div class="text-center-child">
+                  <h1>Life of the Sun</h1>
+              </div>
+            </div>
+          </section>
+      </div>
+</body>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+ScrollTrigger.defaults({
+  toggleActions: "restart pause resume pause",
+  scroller: ".container"
+});
+
+gsap.to(".orange p", {
+  scrollTrigger: ".orange", 
+  duration: 2, 
+  rotation: 360
+});
+
+gsap.to(".core", {
+  scrollTrigger: {
+    trigger: ".core",
+    toggleActions: "restart pause reverse pause"
+  }, 
+  duration: 1, 
+  backgroundColor: "#FFA500", 
+  ease: "none"
+});
+
+gsap.to(".yoyo p", {
+  scrollTrigger: ".yoyo", 
+  scale: 2, 
+  repeat: -1, 
+  yoyo: true, 
+  ease: "power2"
+});
+</script>
+</html>
