@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life of the Sun</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/lottie.js"></script>
+</head>
+<body>
+    <div class="container">
+        <section class="panel intro video-section">
+          <video autoplay muted loop playsinline class="bg-video">
+          <source src="video/intro-bg.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+        </section>
+
+        <section class="panel">
+          <div class="gas">
+             <div id="gas-txt">
+              <p>The sun and all the planets of our solar system began as a giant cloud of molecular gas and dust.</p>
+              <p>About 4.57 billion years ago, something happened that caused the cloud to collapse.</p>
+            </div>
+            <img src="img/stellar-gas-bg.jpg" class="spiral-gas" width="125%" height="125%">
+          </div>
+          </section>
+
+          <section class="panel">
+          <div class="compressed-gas">
+            <div id="cgas-txt">
+              <p>Eventually, gravitational pressure caused the material at the center to become so hot it initiated nuclear fusion.</p>
+            </div>
+            <img src="img/compressed-gas.jpg" class="spiral-compressed">
+          </div>
+          </section>
+   
+          <section class="panel">
+            <div class="gas">
+              <div id="sun-txt">
+                  <p>Nuclear fusion continues as matter is converted into radiant energy.</p>
+                  <p>So far, the sun has converted about 100 times Earth's mass into energy</p>
+              </div>
+              <img src="img/sun-bg.jpg" class="spiral-compressed">
+            </div>
+          </section>
+
+          <section class="panel intro video-section">
+          <video autoplay muted loop playsinline class="bg-video">
+          <source src="video/red-giant-bg.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+          </video>
+          <div id="redg-txt">
+                  <p>As the sun rapidly burns through the last of its hydrogen reserves it will have expanded over 10 times its size and 50 times its brightness consuming the inner planets.</p>
+              </div>
+        </section>
+
+          <section class="panel">
+            <div class="gas">
+              <div id="dwarf-txt">
+                  <p>Eventually the fusion process will destabilize the sun and after several thermal pulses, it will eject over half its mass creating a planetary nebula with a white dwarf at the center surviving for trillions of years.</p>
+              </div>
+              <img src="img/white-dwarf-bg.jpg" class="spiral-compressed">
+            </div>
+          </section>
+      </div>
+      
+      <script src="js/gsap.min.js"></script>
+      <script src="js/ScrollTrigger.min.js"></script>
+      <script src="js/script.js"></script>
+</body>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottie Orbiter</title>
+    <style>
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <script src="lottie.js" type="text/javascript"></script>
+
+    <div id="container" style="width:1080px;height:1080px; margin: 0 auto;"  class="lottie" data-anim-loop="true" data-name="ninja"></div>
+
+
+    <script>
+        lottie.loadAnimation({
+  container: document.getElementById('container'),
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: 'data2.json' // the path to the animation json
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black !important;
+  }
+  
+  .container {
+    max-height: 100vh;
+      overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    overflow-x: hidden;
+  }
+  
+  .panel {
+    scroll-snap-align: start;
+    height: 100vh;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+  }
+  
+  .text-center {
+      position: relative;
+      top: 50%;
+      left: 50%;
+  }
+  
+  .text-center-child {
+      position: absolute;
+      transform: translate(-50%, -50%);
+  }
+  
+
+  @keyframes spiral_rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  } 
+
+  .spiral-gas {
+    width: 300%;
+    animation: spiral_rotate 100s infinite;
+    transform-origin: 30% 50%;
+    animation-timing-function: linear;
+  } 
+
+    .spiral-compressed {
+    width: 200%;
+    animation: spiral_rotate 100s infinite;
+    transform-origin: 50% 50%;
+    animation-timing-function: linear;
+  } 
+
+  .video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+  
+.bg-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.gas {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.compressed-gas {
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+#gas-txt {
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 55%;
+  left: 86%;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;             /* Ensure text is visible on black */
+  border-radius: 10px;
+  padding: 20px;            /* Optional: adds space inside the box */
+  max-width: 400px;         /* Optional: limits box width */
+  margin: 20px auto;        /* Optional: centers horizontally with top/bottom spacing */
+  font-family: sans-serif; /* Optional: makes text look cleaner */
+  font-weight: bold;
+  z-index:10;
+}
+
+#cgas-txt {
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 55%;
+  left: 86%;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;             /* Ensure text is visible on black */
+  border-radius: 10px;
+  padding: 20px;            /* Optional: adds space inside the box */
+  max-width: 400px;         /* Optional: limits box width */
+  margin: 20px auto;        /* Optional: centers horizontally with top/bottom spacing */
+  font-family: sans-serif; /* Optional: makes text look cleaner */
+  font-weight: bold;
+  z-index:10;
+}
+
+#sun-txt {
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 55%;
+  left: 86%;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;             /* Ensure text is visible on black */
+  border-radius: 10px;
+  padding: 20px;            /* Optional: adds space inside the box */
+  max-width: 400px;         /* Optional: limits box width */
+  margin: 20px auto;        /* Optional: centers horizontally with top/bottom spacing */
+  font-family: sans-serif; /* Optional: makes text look cleaner */
+  font-weight: bold;
+  z-index:10;
+}
+
+#redg-txt {
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 27%;
+  left: 40%;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;             /* Ensure text is visible on black */
+  border-radius: 10px;
+  padding: 20px;            /* Optional: adds space inside the box */
+  max-width: 400px;         /* Optional: limits box width */
+  margin: 20px auto;        /* Optional: centers horizontally with top/bottom spacing */
+  font-family: sans-serif; /* Optional: makes text look cleaner */
+  font-weight: bold;
+  z-index:10;
+}
+
+#dwarf-txt {
+  width: 500px;
+  text-align: center;
+  margin: 0 auto;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 55%;
+  left: 86%;
+  font-size: 30px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;             /* Ensure text is visible on black */
+  border-radius: 10px;
+  padding: 20px;            /* Optional: adds space inside the box */
+  max-width: 400px;         /* Optional: limits box width */
+  margin: 20px auto;        /* Optional: centers horizontally with top/bottom spacing */
+  font-family: sans-serif; /* Optional: makes text look cleaner */
+  font-weight: bold;
+  z-index:10;
+}
